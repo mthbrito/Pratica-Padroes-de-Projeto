@@ -3,42 +3,34 @@ package org.example.PraticaPadroesComportamentais.observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Estoque {
+public class Estoque implements Subject{
 
-    private List<Usuario> usuarios = new ArrayList<>();
-    private List<Produto> produtos = new ArrayList<>();
+    private List<Observer> observadores = new ArrayList<>();
 
-    public Estoque() {
+    @Override
+    public void addObserver(Observer observer) {
+        observadores.add(observer);
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    @Override
+    public void removeObserver(Observer observer) {
+        observadores.remove(observer);
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public void adicionarUsuario(Usuario usuario) {
-        usuarios.add(usuario);
+    @Override
+    public void notificaObserver(Produto produto) {
+        for(Observer observador: observadores) {
+            observador.notificaAlteracao(produto);
+        }
     }
 
     public void adicionarProduto(Produto produto) {
         System.out.println("Produto adicionado ao estoque: " + produto.getNome());
-        notificaUsuarios(produto);
+        notificaObserver(produto);
     }
 
-    private void notificaUsuarios(Produto produto) {
-        for(Usuario usuario: usuarios) {
-            usuario.notificaAlteracao(produto);
-        }
-    }
+
+
+
+
 }

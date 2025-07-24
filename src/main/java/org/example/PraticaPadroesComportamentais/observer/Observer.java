@@ -1,5 +1,7 @@
 package org.example.PraticaPadroesComportamentais.observer;
 
-public interface EstoqueObserver {
+public interface Observer {
+
     void notificaAlteracao(Produto produto);
+
 }

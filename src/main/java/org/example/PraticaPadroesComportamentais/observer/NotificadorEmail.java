@@ -1,15 +1,15 @@
 package org.example.PraticaPadroesComportamentais.observer;
 
-public class NotificadorEmail {
+public class NotificadorEmail implements Observer{
 
-//    private String email;
-//
-//    public NotificadorEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public void enviarEmail(Produto produto){
-//        System.out.println("E-mail enviado para " + email + ": Novo produto disponível - " + produto);
-//    }
+    private String email;
 
+    public NotificadorEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public void notificaAlteracao(Produto produto) {
+        System.out.println("E-mail enviado para " + email + ": Novo produto disponível - " + produto.getNome());
+    }
 }

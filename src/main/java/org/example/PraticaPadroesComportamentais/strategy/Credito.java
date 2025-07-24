@@ -1,6 +1,6 @@
 package org.example.PraticaPadroesComportamentais.strategy;
 
-public class Credito implements PagamentoStrategy{
+public class Credito implements PagamentoStrategy {
 
     @Override
     public void pagar(double valor) {

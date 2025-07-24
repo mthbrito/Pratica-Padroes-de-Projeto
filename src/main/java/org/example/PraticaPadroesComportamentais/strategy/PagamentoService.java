@@ -3,7 +3,9 @@ package org.example.PraticaPadroesComportamentais.strategy;
 public class PagamentoService {
 
     private PagamentoStrategy metodo;
-    private double valor;
+
+    public PagamentoService() {
+    }
 
     public PagamentoService(PagamentoStrategy metodo) {
         this.metodo = metodo;
@@ -14,7 +16,10 @@ public class PagamentoService {
     }
 
     public void pagar(double valor) {
-        metodo.pagar(valor);
+        if (metodo != null)
+            metodo.pagar(valor);
+        else
+            System.out.println("Nenhuma estratégia de pagamento foi definida.");
     }
 }
 

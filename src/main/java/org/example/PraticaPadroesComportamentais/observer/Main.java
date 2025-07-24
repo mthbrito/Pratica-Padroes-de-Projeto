@@ -11,12 +11,14 @@ public class Main {
 
         Estoque estoque = new Estoque();
 
-        Usuario maria = new Usuario("Maria", "maria@gmail.com");
-        Usuario jose = new Usuario("José", "jose@hotmail.com");
+        Observer maria = new Usuario("Maria");
+        Observer jose = new Usuario("José");
+        Observer email = new NotificadorEmail("joaquim@gmail.com");
 
-        estoque.adicionarUsuario(maria);
-        estoque.adicionarUsuario(jose);
+        estoque.addObserver(maria);
+        estoque.addObserver(jose);
+        estoque.addObserver(email);
 
-        estoque.adicionarProduto(new Produto("Smartphone X", 25000));
+        estoque.adicionarProduto(new Produto("Smartphone X", 2500));
     }
 }
